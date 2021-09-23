@@ -413,7 +413,7 @@ open class TextView: UITextView {
         selectedRange = NSRange(location: selectedRange.location + string.length, length: 0)
     }
 
-    @objc open func pasteAndMatchStyle(_ sender: Any?) {
+    @objc open override func pasteAndMatchStyle(_ sender: Any?) {
         guard let string = UIPasteboard.general.loadAttributedString()?.mutableCopy() as? NSMutableAttributedString else {
             super.paste(sender)
             return
